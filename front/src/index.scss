@@ -11,5 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 @import "./bootstrap/bootstrap";
 @import "./src/components/Logo";
+@import "./src/components/ToggleForm";

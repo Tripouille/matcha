@@ -1,8 +1,8 @@
 import React from "react";
 
-export const LoginForm: React.FC = () => {
+export const CreateAccountForm: React.FC = () => {
   return (
-    <form className="container my-3 loginForm d-flex flex-column justify-content-around">
+    <form className="container my-3 createAccountForm d-flex flex-column justify-content-around">
       <div className="form-floating mb-3">
         <input
           type="email"
@@ -21,14 +21,18 @@ export const LoginForm: React.FC = () => {
         />
         <label htmlFor="passwordInput">Password</label>
       </div>
-
-      <div className="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me" /> Remember me
-        </label>
+      <div className="form-floating mb-3">
+        <input
+          type="password"
+          className="form-control"
+          id="passwordConfirmationInput"
+          placeholder="Password confirmation"
+        />
+        <label htmlFor="passwordConfirmationInput">Password confirmation</label>
       </div>
+
       <button className="w-100 btn btn-lg btn-primary" type="submit">
-        Sign in
+        Create account
       </button>
     </form>
   );

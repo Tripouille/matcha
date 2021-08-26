@@ -1,16 +1,16 @@
 import { useCallback } from "react";
 import { useToggle } from "../../hooks/useToggle";
 import { LoginForm } from "../LoginForm";
-import { SubscribeForm } from "../SubscribeForm";
+import { CreateAccountForm } from "../CreateAccountForm";
 
 enum EState {
   login = "login",
-  subscribe = "subscribe",
+  createAccount = "createAccount",
 }
 
 export const ToggleForm: React.FC = () => {
-  const [state, toggleState] = useToggle(EState.login, EState.subscribe);
-  const Form = state === EState.login ? <LoginForm /> : <SubscribeForm />;
+  const [state, toggleState] = useToggle(EState.login, EState.createAccount);
+  const Form = state === EState.login ? <LoginForm /> : <CreateAccountForm />;
 
   const handleClick = useCallback(() => {
     toggleState();
@@ -25,7 +25,7 @@ export const ToggleForm: React.FC = () => {
           className="my-3 btn btn-link btn-outline-none"
           onClick={handleClick}
         >
-          {state === EState.login ? "Connect" : "Subscribe"}
+          {state === EState.login ? "Create account" : "Sign in"}
         </button>
       </nav>
     </div>

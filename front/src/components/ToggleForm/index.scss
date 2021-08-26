@@ -1,0 +1,7 @@
+%form {
+  height: 30vh;
+}
+
+.loginForm, .createAccountForm {
+  @extend %form;
+}
