@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Lovely_Valentine";
+  src: url("../../fonts/Lovely_Valentine.ttf") format("truetype");
+}
+
+.logo-container {
+  background-color: black;
+  border-radius: 10px;
+  .logo-text {
+    font-family: "Lovely_Valentine";
+    color: white;
+    font-size: 6em;
+  }
+  .logo-img {
+    height: 75px;
+    width: auto;
+  }
+}
