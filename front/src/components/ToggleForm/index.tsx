@@ -24,6 +24,7 @@ export const ToggleForm: React.FC = () => {
         <button
           className="my-3 btn btn-link btn-outline-none"
           onClick={handleClick}
+          type="button"
         >
           {state === EState.login ? "Create account" : "Sign in"}
         </button>
