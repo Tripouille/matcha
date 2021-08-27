@@ -5,6 +5,33 @@ export const CreateAccountForm: React.FC = () => {
     <form className="container my-3 createAccountForm d-flex flex-column justify-content-around">
       <div className="form-floating mb-3">
         <input
+          type="text"
+          className="form-control"
+          id="FirstNameInput"
+          placeholder="FirstName"
+        />
+        <label htmlFor="FirstNameInput">First Name</label>
+      </div>
+      <div className="form-floating mb-3">
+        <input
+          type="text"
+          className="form-control"
+          id="LastNameInput"
+          placeholder="LastName"
+        />
+        <label htmlFor="LastNameInput">Last Name</label>
+      </div>
+      <div className="form-floating mb-3">
+        <input
+          type="text"
+          className="form-control"
+          id="AliasInput"
+          placeholder="Alias"
+        />
+        <label htmlFor="AliasInput">Alias</label>
+      </div>
+      <div className="form-floating mb-3">
+        <input
           type="email"
           className="form-control"
           id="emailInput"

@@ -5,12 +5,12 @@ export const LoginForm: React.FC = () => {
     <form className="container my-3 loginForm d-flex flex-column justify-content-around">
       <div className="form-floating mb-3">
         <input
-          type="email"
+          type="text"
           className="form-control"
-          id="emailInput"
-          placeholder="Email address"
+          id="AliasInput"
+          placeholder="Alias"
         />
-        <label htmlFor="emailInput">Email address</label>
+        <label htmlFor="AliasInput">Alias</label>
       </div>
       <div className="form-floating mb-3">
         <input

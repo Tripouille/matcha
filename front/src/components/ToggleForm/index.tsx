@@ -17,7 +17,7 @@ export const ToggleForm: React.FC = () => {
   }, [toggleState]);
 
   return (
-    <div className="border mt-5 w-75 mx-auto">
+    <div className="border mt-5 w-75 mx-auto p-3">
       {Form}
       <hr className="w-75 mx-auto my-0" />
       <nav className="text-center">
