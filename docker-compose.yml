@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    command: npm start
+    volumes:
+      - ./backend:/backend/
+
+  postgres:
+    image: postgres:13.4
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgresql/sql_scripts/:/docker-entrypoint-initdb.d/
+    env_file: ./postgresql/.postgres_env
