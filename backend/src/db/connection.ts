@@ -1,13 +1,8 @@
 import { Pool } from 'pg';
-import Debug from 'debug';
 
-const debug = Debug('api');
-
-debug('before connection');
 export default new Pool({
-  user: 'admin',
-  host: 'postgres',
-  database: 'db',
-  password: 'admin',
-  port: 5432,
+  host: 'postgres', // postgres if in docker, localhost in local
+  database: process.env.POSTGRES_DB,
+  user: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
 });

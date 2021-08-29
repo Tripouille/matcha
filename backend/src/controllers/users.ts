@@ -1,18 +1,30 @@
+import { debug } from 'debug';
 import { Request, Response } from 'express';
-import Debug from 'debug';
-import pool from '../db/connection';
+import * as db from '../db/queries';
 
-const debug = Debug('api');
+const handleError = (err: Error, res: Response) => {
+  debug('api')(`DB query on users : ${err.toString()}`);
+  res.status(500).json({ error: 'Something failed !' });
+};
 
 export const getUsers = (req: Request, res: Response): void => {
-  debug('before query');
-  pool.query('SELECT * FROM users', (err, queryResult) => {
-    if (err) throw err;
-    res.status(200).json(queryResult.rows);
+  db.get('users', '*', null, (err, queryResult) => {
+    if (err) {
+      handleError(err, res);
+    } else {
+      res.status(200).json(queryResult.rows);
+    }
   });
-  // res.status(200).json({ message: 'get all users' });
 };
 
 export const getUserById = (req: Request, res: Response): void => {
-  res.status(200).json({ message: 'get user by id' });
+  db.get('users', '*', `id = ${req.params.id}`, (err, queryResult) => {
+    if (err) {
+      handleError(err, res);
+    } else if (queryResult.rowCount === 0) {
+      res.status(404).json({ error: 'Unknown user' });
+    } else {
+      res.status(200).json(queryResult.rows);
+    }
+  });
 };

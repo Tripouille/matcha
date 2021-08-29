@@ -9,6 +9,9 @@ services:
     command: npm start
     volumes:
       - ./backend:/backend/
+    env_file:
+      - ./backend/.env
+      - ./postgresql/.env.postgres
 
   postgres:
     image: postgres:13.4
@@ -16,4 +19,5 @@ services:
       - "5432:5432"
     volumes:
       - ./postgresql/sql_scripts/:/docker-entrypoint-initdb.d/
-    env_file: ./postgresql/.postgres_env
+    env_file:
+      - ./postgresql/.env.postgres
