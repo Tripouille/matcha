@@ -28,3 +28,24 @@ export const getUserById = (req: Request, res: Response): void => {
     }
   });
 };
+
+const allowedEntries = ['alias', 'email', 'password'];
+export const createUser = (req: Request, res: Response): void => {
+  const filteredBody = Object.entries(req.body).filter(([k]) => allowedEntries.includes(k));
+  debug('api')(filteredBody);
+  db.insert(
+    'users',
+    {
+      alias: 'test_alias',
+      email: 'test_email',
+      password: 'test_password',
+    },
+    (err) => {
+      if (err) {
+        handleError(err, res);
+      } else {
+        res.status(200).json({ message: 'Successfully created the user' });
+      }
+    },
+  );
+};
