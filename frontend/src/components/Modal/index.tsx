@@ -1,8 +1,9 @@
+import React from "react";
 import { createPortal } from "react-dom";
 
 interface IModalProps {
   title: string;
-  footer: JSX.Element;
+  footer?: JSX.Element;
   onClose: () => void;
 }
 
